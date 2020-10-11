@@ -1,0 +1,63 @@
+parser: babel-eslint
+
+extends:
+  [
+    airbnb,
+    plugin:react/recommended,
+    plugin:prettier/recommended,
+    prettier/react,
+  ]
+
+env:
+  browser: true
+  node: true
+  jest: true
+  es6: true
+
+plugins: [react, jsx-a11y, react-hooks, prettier]
+
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+
+# settings:
+#   import/resolver:
+#     node:
+#       extensions: [.js, .mjs]
+
+rules:
+  # arrow-parens:
+  #   - error
+  #   - as-needed
+  # no-continue:
+  no-nested-ternary: off
+  no-param-reassign:
+    - error
+    - ignorePropertyModificationsFor:
+        - gridData
+        - cellData
+      ignorePropertyModificationsForRegex:
+        - ^memo
+  no-plusplus:
+    - error
+    - allowForLoopAfterthoughts: true
+  no-unused-vars:
+    - error
+    - argsIgnorePattern: ^[a-z]|props$
+  no-use-before-define: off
+  react/jsx-filename-extension:
+    - error
+    - extensions: [.js, .jsx]
+  react/jsx-props-no-spreading: off
+  react/sort-comp: off
+# overrides:
+#   - files: ['test/**', '**/*.spec.mjs']
+#     rules:
+#       # chai has function-less ".exists" and ".true" properties that trigger the
+#       # no-unused-expressions rule
+#       no-unused-expressions: off
+#   - files: ['docs/*-wcv*.js', 'docs/*-wcv*.json']
+#     rules:
+#       sort-keys: error
